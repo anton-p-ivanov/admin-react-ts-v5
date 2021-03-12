@@ -16,7 +16,7 @@ const UsersListToolbar: React.FC<TUsersListToolbar> = ({ isRowsSelected = false 
     <DataToolbar total={listView.state.pagination.total} search={search}>
       <div className="data-toolbar__group">
         <div className="data-toolbar__item">
-          <Link to={`/users/create`} className="btn btn--default">
+          <Link to={`/users/create`} className="btn btn--success">
             Создать
           </Link>
         </div>

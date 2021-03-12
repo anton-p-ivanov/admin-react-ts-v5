@@ -1,0 +1,20 @@
+@import "src/assets/variables";
+
+.form-view {
+  position: relative;
+  max-width: 1000px;
+
+  &__shadow {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color-white, .5);
+
+    &--active {
+      display: block;
+    }
+  }
+}

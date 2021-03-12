@@ -1,0 +1,22 @@
+input[type="file"] {
+  display: none;
+}
+
+.modal__dialog--uploader {
+  .modal__body {
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-top: 0;
+  }
+
+  .modal__footer {
+    justify-content: center;
+  }
+
+  .details {
+    &__title {
+      margin-bottom: 1rem;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import "src/assets/variables";
+
+.form {
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-top: solid 1px $color-gray-light;
+
+    * + * {
+      margin-left: 1rem;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import "src/assets/variables";
+
+.modal__dialog--downloader {
+  .modal__body {
+    text-align: center;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-top: 0;
+  }
+
+  .modal__footer {
+    justify-content: center;
+  }
+
+  .details {
+    &__filename {
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    &__percent {
+
+    }
+  }
+}

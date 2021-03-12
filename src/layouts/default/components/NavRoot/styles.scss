@@ -1,0 +1,24 @@
+@import "src/assets/variables";
+
+.nav--root {
+  margin-top: 1rem;
+
+  .nav__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    border-radius: 0;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+
+    &--active,
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, .25);
+      color: $color-white;
+    }
+  }
+}

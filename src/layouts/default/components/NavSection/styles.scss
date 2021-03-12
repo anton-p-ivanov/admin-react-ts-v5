@@ -1,0 +1,30 @@
+@import "src/assets/variables";
+
+.nav--section {
+  .nav-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    &__label {
+      font-size: $font-size-lg;
+    }
+
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $color-secondary;
+      padding: .5rem;
+      border-radius: 2px;
+      color: $color-white;
+      margin-right: 1rem;
+    }
+  }
+
+  .nav__group + .nav__group {
+    margin-top: .5rem;
+    padding-top: .5rem;
+    border-top: solid 1px $color-gray-medium;
+  }
+}

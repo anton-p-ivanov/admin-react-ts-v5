@@ -3,6 +3,7 @@ import React from 'react';
 
 import { TRoute } from 'config/types';
 import StorageRoutes from 'modules/storage/config/routes';
+import UsersRoutes from 'modules/users/config/routes';
 
 const Routes: TRoute[] = [
   {
@@ -25,4 +26,4 @@ const Routes: TRoute[] = [
   },
 ];
 
-export default [...Routes, ...StorageRoutes];
+export default [...Routes, ...StorageRoutes, ...UsersRoutes];

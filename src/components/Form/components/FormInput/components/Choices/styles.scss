@@ -1,0 +1,24 @@
+@import "src/assets/variables";
+
+.choices {
+  margin-top: .5rem;
+
+  &--inline {
+    display: flex;
+  }
+
+  .form-choice {
+    display: flex;
+    margin-right: 1rem;
+
+    &__input {
+      margin-top: .375rem;
+      display: block;
+    }
+
+    &__label {
+      display: block;
+      margin-left: .5rem;
+    }
+  }
+}

@@ -1,0 +1,113 @@
+@import "src/assets/variables";
+
+$button-colors: (
+        info: (background-color: $color-info, color: $color-white),
+        success: (background-color: $color-success, color: $color-white),
+        warning: (background-color: $color-warning, color: $color-white),
+        danger: (background-color: $color-danger, color: $color-white),
+        primary: (background-color: $color-primary, color: $color-white),
+        default: (background-color: $color-white, color: $color-black, border-color: $color-gray-medium)
+);
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: solid $button-border-width transparent;
+  padding: .725rem 1rem;
+  height: 2.5rem;
+  line-height: 1em; // important to use `em` instead of `rem`
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: $border-radius;
+  transition: border-color .1s ease-in-out,
+  background-color .1s ease-in-out;
+
+  @each $status, $color-map in $button-colors {
+    &--#{$status} {
+      @each $property, $color in $color-map {
+        #{$property}: $color;
+      }
+
+      &:hover,
+      &:active {
+        background-color: darken(map_get($color-map, 'background-color'), 10%);
+        @if map_has_key($color-map, 'border-color') {
+          border-color: darken(map_get($color-map, 'border-color'), 10%);
+        }
+      }
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+
+      &, &:hover, &:focus, &:active {
+        background-color: $color-gray-light !important;
+        border-color: $color-gray-medium !important;
+        color: $color-gray-medium !important;
+      }
+    }
+  }
+
+  &--protected:hover {
+    background-color: $color-danger;
+    border-color: darken($color-danger, 10%);
+    color: $color-white;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
+  &--default {
+    &.btn--active {
+      background-color: $color-primary;
+      border-color: darken($color-primary, 5);
+      color: $color-white;
+    }
+  }
+
+  &--link {
+    border: 0;
+    color: $color-primary;
+    padding: 0;
+    height: auto;
+
+    &:hover {
+      text-decoration: underline !important;
+    }
+  }
+
+  &--icon {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+
+    & .feather {
+      width: 18px;
+      height: 18px;
+    }
+
+    &.btn--small {
+      padding: 0;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &--small {
+    padding: 0 .625rem;
+    height: 32px;
+    font-size: $font-size-sm;
+    line-height: 1;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    outline: 0;
+  }
+}

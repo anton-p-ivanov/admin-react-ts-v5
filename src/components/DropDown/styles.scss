@@ -1,0 +1,122 @@
+@import "src/assets/variables";
+
+$dropdown-border-width: 1px;
+
+@mixin clearButtonStyles {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+};
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+
+  & {
+    &:hover > &__toggle {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  &__toggle {
+    @include clearButtonStyles;
+
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: $color-gray-dark;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      color: $color-blue;
+    }
+  }
+
+  &__menu {
+    display: none;
+    position: absolute;
+    margin: 0;
+    padding: .5rem;
+    list-style: none;
+    background: $color-white;
+    border-top: solid ($dropdown-border-width * 2) $color-primary;
+    box-shadow: $shadow;
+    border-radius: 0 0 $border-radius $border-radius;
+    top: 100%;
+    z-index: 1000;
+    color: $color-text-body;
+
+    &--visible {
+      display: block;
+    }
+
+    &--right {
+      right: 0;
+    }
+  }
+
+  &__item {
+    @include clearButtonStyles;
+
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: .5rem 1.5rem;
+    border-radius: $border-radius;
+    line-height: 1;
+    color: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:focus {
+      outline: none;
+    }
+
+    &--link {
+      cursor: pointer;
+
+      &:hover:not(:disabled) {
+        background-color: rgba(0, 0, 0, .05);
+        color: $color-primary;
+        text-decoration: none;
+      }
+    }
+
+    &--protected {
+      color: $color-danger;
+
+      &:hover {
+        color: $color-danger;
+        background-color: rgba($color-danger, .1);
+      }
+    }
+
+    &--divider {
+      margin: .5rem 0;
+      padding: 0;
+      height: 1px;
+      background-color: $color-gray-light;
+    }
+
+    &--disabled,
+    &:disabled {
+      cursor: not-allowed;
+      color: $color-gray-medium;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    margin-left: -1rem;
+    margin-right: 1rem;
+    width: 18px;
+    height: 18px;
+    color: $color-gray-dark;
+  }
+}

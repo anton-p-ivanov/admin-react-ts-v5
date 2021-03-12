@@ -1,0 +1,28 @@
+@import "src/assets/variables";
+
+.data-sort {
+  display: flex;
+  align-items: center;
+
+  &:hover,
+  &__toggle:hover {
+    color: $color-primary;
+  }
+
+  &__icon {
+    margin-right: .5rem;
+    min-width: 12px;
+  }
+
+  &__toggle {
+    display: block;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: inherit;
+    padding: 0;
+    margin: 0;
+    outline: none;
+  }
+}

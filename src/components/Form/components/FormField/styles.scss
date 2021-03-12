@@ -1,0 +1,64 @@
+@import "src/assets/variables";
+
+.form {
+  &__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+
+    &--horizontal {
+      flex-direction: row;
+      margin-left: -1rem;
+      margin-right: -1rem;
+
+      .form__label {
+        flex: 0 0 33%;
+        text-align: right;
+        margin-top: .5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        &--required {
+          &::after {
+            right: 0;
+          }
+        }
+      }
+
+      .form__wrapper {
+        flex: 0 0 67%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        &--offset {
+          margin-left: 33%;
+        }
+      }
+    }
+
+    &--invalid {
+      .form__label {
+        color: $color-danger;
+      }
+
+      .form__input {
+        border-color: $color-danger;
+        color: $color-danger;
+
+        &:focus {
+          outline: 0;
+          border-color: $color-danger;
+          box-shadow: 0 0 0 .25rem rgba($color-danger, .25);
+        }
+      }
+
+      .form__error {
+        display: block;
+      }
+
+      .form__hint {
+        display: none;
+      }
+    }
+  }
+}

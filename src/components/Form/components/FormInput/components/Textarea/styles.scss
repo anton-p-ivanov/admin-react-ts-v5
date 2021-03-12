@@ -1,0 +1,17 @@
+@import "src/assets/variables";
+
+$textarea-sizes: (
+        small: 5rem,
+        medium: 10rem,
+        large: 20rem,
+);
+
+.textarea {
+  height: auto !important;
+
+  @each $name, $size in $textarea-sizes {
+    &--#{$name} {
+      height: $size !important;
+    }
+  }
+}

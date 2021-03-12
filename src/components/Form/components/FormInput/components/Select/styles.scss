@@ -1,0 +1,31 @@
+@import "src/assets/variables";
+@import "src/assets/mixins";
+
+@mixin baseInputSelect {
+  padding-top: 0;
+  padding-bottom: 0;
+  appearance: none;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzMzMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLWNoZXZyb24tZG93biI+PHBvbHlsaW5lIHBvaW50cz0iNiA5IDEyIDE1IDE4IDkiLz48L3N2Zz4=");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 18px 18px;
+  cursor: pointer;
+
+  &[size] {
+    height: auto;
+    background-image: none;
+  }
+}
+
+.form__input--select {
+  @include baseInputSelect;
+}
+
+.form__input--workflow {
+  @include baseInputSelect;
+  width: 50%;
+
+  @include desktop {
+    width: 100%;
+  }
+}

@@ -1,0 +1,27 @@
+@import "../../assets/variables";
+
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+
+  &--sm {
+    width: 18px;
+    height: 18px;
+  }
+
+  &--xs {
+    width: 12px;
+    height: 12px;
+  }
+
+  @each $name, $color in $colors {
+    &--#{$name} {
+      color: $color;
+    }
+  }
+}

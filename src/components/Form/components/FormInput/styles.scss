@@ -1,0 +1,78 @@
+@import "src/assets/variables";
+
+.form {
+  &__input {
+    width: 100%;
+    border-radius: $border-radius;
+    background-color: $color-white;
+    box-shadow: inset 0 .125rem .125rem rgba($color-black, .05);
+    transition: border-color .1s ease-in-out, outline .1s ease-in-out;
+
+    & {
+      border: solid $input-border-width $color-gray-medium;
+      padding: .625rem 1rem;
+      line-height: 1.25rem;
+      height: 2.5rem;
+    }
+
+    &--checkbox,
+    &--radio {
+      appearance: none;
+      height: 1.25rem;
+      width: 1.25rem;
+      box-shadow: none;
+      padding: 0;
+      margin-right: 1rem;
+      margin-top: .25rem;
+      position: relative;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: none;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 18px 18px;
+      }
+
+      &:checked::after {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItY2hlY2siPjxwb2x5bGluZSBwb2ludHM9IjIwIDYgOSAxNyA0IDEyIj48L3BvbHlsaW5lPjwvc3ZnPg==");
+      }
+    }
+
+    &--select {
+      padding-top: 0;
+      padding-bottom: 0;
+      appearance: none;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzMzMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLWNoZXZyb24tZG93biI+PHBvbHlsaW5lIHBvaW50cz0iNiA5IDEyIDE1IDE4IDkiLz48L3N2Zz4=");
+      background-repeat: no-repeat;
+      background-position: right .5rem center;
+      background-size: 20px 20px;
+      cursor: pointer;
+
+      &[size] {
+        height: auto;
+        background-image: none;
+      }
+    }
+
+    &--date,
+    &--datetime {
+      overflow: hidden;
+    }
+
+    &:focus {
+      outline: solid .25rem rgba($color-primary, .25);
+      border-color: rgba($color-primary, 1);
+    }
+
+    &:disabled {
+      background-color: $color-gray-light;
+    }
+  }
+}

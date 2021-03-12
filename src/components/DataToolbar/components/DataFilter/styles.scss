@@ -1,0 +1,46 @@
+@import "src/assets/variables";
+
+.data-filter {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 100%;
+  width: 450px;
+  background-color: $color-white;
+  z-index: 1100;
+  right: 0;
+  top: 100%;
+  margin-top: -2px;
+  box-shadow: $shadow;
+  border-radius: 0 0 $border-radius $border-radius;
+  border-top: solid 2px $color-primary;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $color-white;
+    padding: .5rem 0;
+    margin: 0 1rem;
+    border-bottom: solid 1px $color-gray-light;
+  }
+
+  &__body {
+    padding: 1rem;
+    flex: 1 1 auto;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__reset {
+    margin: -.5rem -1rem;
+
+    &:hover {
+      background-color: $color-gray-light;
+    }
+  }
+}

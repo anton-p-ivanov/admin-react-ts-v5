@@ -1,0 +1,33 @@
+@import "../../assets/variables";
+
+.nav {
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    display: block;
+
+    &--divider {
+      height: 1rem;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: $color-text-body;
+    padding: .325rem 1rem;
+    border-radius: $border-radius;
+    transition: background-color .1s ease-in-out,
+    color .1s ease-in-out;
+
+    &--active,
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+      background-color: rgba(0, 0, 0, .05);
+      color: $color-primary;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@import "src/assets/variables";
+
+.status {
+  display: none;
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+
+  &--active {
+    display: flex;
+  }
+
+  &__icon {
+    margin-right: 1rem;
+    display: flex;
+  }
+
+  &--animated {
+    animation: rotating 1s linear infinite;
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

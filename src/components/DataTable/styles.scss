@@ -1,0 +1,91 @@
+@import "src/assets/variables";
+
+@mixin data-table-cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: $cell-padding-y $cell-padding-x;
+  text-align: left;
+}
+
+.data-table {
+  position: relative;
+  margin-bottom: 1rem;
+  flex: 1 0 auto;
+
+  &__shade {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-color: rgba($color-white, .75);
+  }
+
+  &__table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    thead {
+      th {
+        @include data-table-cell;
+        border-bottom: solid 2px $color-gray-medium;
+        font-weight: $font-weight-bold;
+      }
+    }
+
+    tbody {
+      td {
+        @include data-table-cell;
+        border-bottom: solid 1px $color-gray-medium;
+      }
+    }
+  }
+
+  &__row {
+    &--disabled {
+      color: $color-gray-medium;
+    }
+
+    &--selected {
+      background-color: lighten($color-primary, 55%) !important;
+      transition: background-color .1s ease-in-out;
+    }
+  }
+
+  &__cell {
+    &--context {
+      position: relative;
+      color: $color-gray-dark;
+      cursor: pointer;
+      line-height: 1;
+      width: 24px/16px + $cell-padding-x * 2;
+      overflow: visible !important;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+
+    @each $name, $color in $colors {
+      &--#{$name} {
+        background-color: $color;
+      }
+    }
+  }
+
+  &__col {
+    &--context {
+      width: 24px/16px + $cell-padding-x * 2;
+    }
+
+    &--selector {
+      width: 16px/16px + $cell-padding-x * 2;
+    }
+  }
+}

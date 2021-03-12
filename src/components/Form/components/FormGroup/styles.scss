@@ -1,0 +1,12 @@
+@import "src/assets/variables";
+
+.form {
+  &__group {
+    margin-bottom: 1rem;
+  }
+
+  &__group ~ &__group {
+    padding-top: 1rem;
+    border-top: solid 1px $color-gray-light;
+  }
+}

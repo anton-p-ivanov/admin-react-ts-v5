@@ -1,0 +1,15 @@
+@import "src/assets/variables";
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__item {
+    margin: 0 .25rem;
+
+    &--text {
+      margin: 0 1rem;
+    }
+  }
+}

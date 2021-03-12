@@ -1,0 +1,11 @@
+@import "src/assets/variables";
+
+.form {
+  &__error {
+    display: block;
+    font-size: $font-size-sm;
+    line-height: $line-height-sm;
+    margin-top: .25rem;
+    color: $color-danger;
+  }
+}

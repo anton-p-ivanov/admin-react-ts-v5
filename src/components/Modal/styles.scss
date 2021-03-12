@@ -1,0 +1,97 @@
+@import "src/assets/variables";
+
+$sizes: (
+        small: 300px,
+        large: 800px
+);
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1100;
+  background-color: rgba(0, 0, 0, .25);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &--visible {
+    display: block;
+  }
+
+  &__dialog {
+    display: flex;
+    align-items: center;
+    margin: 2rem auto;
+    width: 500px;
+
+    @each $name, $width in $sizes {
+      &--#{$name} {
+        width: $width;
+      }
+    }
+
+    @each $name, $color in $colors {
+      &--#{$name} {
+        & .modal__body {
+          border-top-color: $color;
+        }
+      }
+    }
+
+    &--danger {
+      & .modal__header {
+        color: $color-danger;
+      }
+    }
+
+    &--centered {
+      min-height: calc(100% - 4rem);
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-clip: padding-box;
+    box-shadow: $shadow;
+    margin: 0 2rem;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color-white;
+    padding: 1rem;
+    font-weight: bold;
+  }
+
+  &__body {
+    background-color: $color-white;
+    border-top: solid 2px $color-info;
+    border-bottom: solid 1px $color-gray-medium;
+    padding: 1rem;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $color-white;
+    padding: 1rem;
+  }
+
+  &__close {
+    margin: -1rem -.5rem;
+  }
+}
+
+.body--no-scroll {
+  overflow: hidden;
+}

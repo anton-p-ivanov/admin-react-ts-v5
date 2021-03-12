@@ -1,0 +1,87 @@
+@import "src/assets/variables";
+
+$tabs-nav-border-color: $color-gray-light;
+$tabs-nav-background-color: $color-gray-light;
+$tabs-nav-background-color-active: $color-white;
+$tabs-nav-background-color-hover: rgba(0, 0, 0, .05);
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+
+  &__pane {
+    padding: .25rem 0;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 200px;
+    padding-right: 1rem;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    border-left: solid 1px $tabs-nav-border-color;
+    padding-left: 1rem;
+  }
+}
+
+.tabs-nav {
+  &__group {
+    & + & {
+      margin-top: .5rem;
+      padding-top: .5rem;
+      border-top: solid 1px $tabs-nav-border-color;
+    }
+  }
+
+  &__title {
+    padding: .375rem .5rem;
+    text-transform: uppercase;
+    font-size: $font-size-sm;
+    font-weight: bold;
+    color: $color-gray-dark;
+    white-space: nowrap;
+  }
+
+  &__item {
+    display: block;
+    position: relative;
+    padding: .375rem .5rem;
+    margin-bottom: 1px;
+    cursor: pointer;
+    color: $color-primary;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: $tabs-nav-background-color-hover;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &--active {
+      color: $color-black;
+      background-color: $tabs-nav-background-color-hover;
+    }
+
+    &--disabled {
+      color: $color-gray-medium;
+      cursor: not-allowed;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+    &--invalid {
+      color: $color-danger;
+      background-color: transparentize($color-danger, 0.9);
+      &:hover {
+        background-color: transparentize($color-danger, 0.7);
+      }
+    }
+  }
+}

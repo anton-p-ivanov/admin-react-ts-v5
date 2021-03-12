@@ -1,0 +1,24 @@
+@import "src/assets/variables";
+
+.progress {
+  position: relative;
+  border: solid 1px $color-gray-medium;
+  padding: 1rem;
+
+  &__text {
+    display: block;
+    position: absolute;
+    top: .25rem;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: $color-orange;
+  }
+}

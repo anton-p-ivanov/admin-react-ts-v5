@@ -1,0 +1,63 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "extends": [
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "import"
+  ],
+  "rules": {
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "react/jsx-fragments": ["error", "syntax"],
+    "import/namespace": ["error", {
+      "allowComputed": true
+    }],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react*",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  }
+}

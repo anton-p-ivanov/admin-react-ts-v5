@@ -1,0 +1,5 @@
+build/*
+public/*
+src/utils/react-app-env.d.ts
+src/utils/serviceWorker.ts
+src/utils/setupTests.ts

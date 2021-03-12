@@ -8,6 +8,8 @@ const DateFormat: React.FC<TDateFormatProps> = (props) => {
   const date = new Date(value);
 
   switch (format) {
+    case 'date':
+      return <>{date.toLocaleDateString()}</>;
     default:
       return <>{date.toLocaleString()}</>;
   }

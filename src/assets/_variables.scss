@@ -1,0 +1,87 @@
+/**
+ * Font
+ */
+$font-size-base: 15px;
+$font-size-sm: .875rem;
+$font-size-lg: 1.125rem;
+
+/**
+ * Font weight
+ */
+$font-weight-bold: 600;
+
+/**
+ * Text line height
+ */
+$line-height-base: 1.4rem;
+$line-height-sm: $line-height-base * .875;
+
+/**
+ * Colors
+ */
+$color-blue: #0f52ba;
+$color-green: #28a745;
+$color-orange: #fd7e14;
+$color-red: #dc3545;
+
+$color-info: $color-blue;
+$color-success: $color-green;
+$color-warning: $color-orange;
+$color-danger: $color-red;
+
+$color-primary: $color-blue;
+$color-secondary: $color-orange;
+
+$color-white: #ffffff;
+$color-gray-light: #f4f5f7;
+$color-gray-medium: #c0c0c0;
+$color-gray-dark: #707070;
+$color-black: #30353f;
+
+$color-text-body: #000;
+$color-text-primary: $color-white;
+
+$colors: (
+        info: $color-info,
+        success: $color-success,
+        warning: $color-warning,
+        danger: $color-danger,
+        primary: $color-primary,
+        default: $color-black
+);
+
+$alignments: (left: left, right: right, center: center);
+
+/**
+ * Grid
+ */
+$grid-gutter-width: 1rem;
+$grid-columns: 5;
+$grid-flex-basis: 100% / $grid-columns;
+
+/**
+ * Shadows
+ */
+$shadow: 0 .125rem .5rem rgba($color-black, .325);
+
+/**
+ * Borders
+ */
+$border-radius: 2px;
+
+/**
+ * Buttons
+ */
+$button-border-width: 1px;
+
+/**
+ * Inputs
+ */
+$input-border-width: 1px;
+
+/**
+ * Tables
+ */
+
+$cell-padding-x: 1rem;
+$cell-padding-y: .5rem;

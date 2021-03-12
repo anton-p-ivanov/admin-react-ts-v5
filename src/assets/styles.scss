@@ -1,0 +1,122 @@
+@import "~normalize.css";
+@import "./variables";
+
+#root {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+}
+
+body {
+  background-color: $color-white;
+  color: $color-text-body;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: $color-info;
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+h1, h2, h3 {
+  margin: 0 0 1rem;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 1.5rem;
+  letter-spacing: -.05rem;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: $font-size-base;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  overflow: hidden;
+  border: none;
+  background-color: $color-gray-medium;
+  margin: 1rem 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.text {
+  &--small {
+    font-size: $font-size-sm;
+  }
+
+  &--muted {
+    color: $color-gray-medium;
+  }
+
+  &--italic {
+    font-style: italic;
+  }
+
+  @each $name, $color in $colors {
+    &--#{$name} {
+      color: $color;
+    }
+  }
+
+  @each $name, $pos in $alignments {
+    &--#{$pos} {
+      text-align: $pos;
+    }
+  }
+
+}
+
+.counter {
+  display: none;
+  padding: 0 .25rem;
+  margin-bottom: .25rem;
+  background-color: $color-gray-medium;
+  color: $color-white;
+  border-radius: $border-radius;
+}
+
+code {
+  white-space: nowrap;
+}

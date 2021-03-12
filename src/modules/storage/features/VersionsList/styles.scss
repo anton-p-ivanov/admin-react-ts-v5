@@ -1,0 +1,11 @@
+#storage-versions {
+  .data-table__col {
+    &--size {
+      width: 125px;
+    }
+
+    &--uploaded {
+      width: 150px;
+    }
+  }
+}

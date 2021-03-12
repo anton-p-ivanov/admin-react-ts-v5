@@ -1,0 +1,30 @@
+@import "src/assets/variables";
+
+#storage-list {
+  .storage-path {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    &__item {
+      position: relative;
+      display: block;
+      max-width: 30%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 0;
+      padding: 0 1rem 0 0;
+
+      &:not(:last-child)::after {
+        position:absolute;
+        right: 0.25rem;
+        color: $color-gray-medium;
+        content: "\203a";
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import "src/assets/variables";
+
+#storage-list {
+  .data-table__col {
+    &--size {
+      width: 150px;
+    }
+  }
+
+  .storage-title {
+    display: flex;
+    align-items: center;
+
+    .feather {
+      margin-right: 1rem;
+
+      &--folder {
+        stroke: $color-blue;
+      }
+
+      &--file-text {
+        stroke: $color-gray-dark;
+        flex: 0 0 24px;
+      }
+    }
+  }
+
+  .storage-list__path {
+    display: flex;
+    justify-content: space-between;
+    background-color: $color-gray-light;
+    padding: .5rem 1rem;
+    border-radius: $border-radius;
+  }
+}

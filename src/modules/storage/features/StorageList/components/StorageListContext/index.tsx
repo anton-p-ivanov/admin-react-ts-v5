@@ -17,9 +17,6 @@ const StorageListContext: React.FC<TStorageListContextProps> = ({ data }) => {
       <DropDown.Link route={`/storage/${data.storage.uuid}/edit/${data.storage.isDirectory ? 'directory' : 'file'}`}>
         Изменить
       </DropDown.Link>
-      {data.storage.isDirectory && (
-        <DropDown.Link route={`/storage/${data.uuid}/children`}>Изменить для всех</DropDown.Link>
-      )}
       <DropDown.Divider />
       <DropDown.Button onClick={handlers.delete}>Удалить</DropDown.Button>
     </DropDown>

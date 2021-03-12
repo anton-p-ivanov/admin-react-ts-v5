@@ -34,13 +34,6 @@ const StorageListToolbar: React.FC<TStorageListToolbar> = ({ isRowsSelected = fa
         </div>
         <div className="data-toolbar__group">
           <div className="data-toolbar__item">
-            <Button isIcon={true} isDisabled={!isRowsSelected} onClick={handlers.edit}>
-              <Icon name="edit" title="Изменить выбранные элементы" />
-            </Button>
-          </div>
-        </div>
-        <div className="data-toolbar__group">
-          <div className="data-toolbar__item">
             <Button isIcon={true} isDisabled={!isRowsSelected} onClick={handlers.delete}>
               <Icon name="trash-2" title="Удалить" />
             </Button>

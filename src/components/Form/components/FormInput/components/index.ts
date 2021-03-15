@@ -1,5 +1,6 @@
 import Checkbox from './Checkbox';
 import Choices from './Choices';
+import Date from './Date';
 import Password from './Password';
 import Roles from './Roles';
 import Select from './Select';
@@ -16,6 +17,7 @@ export type TInputs = {
 const Inputs: TInputs = {
   Checkbox,
   Choices,
+  Date,
   Password,
   Roles,
   Sites,

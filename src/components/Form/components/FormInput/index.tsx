@@ -25,10 +25,12 @@ const FormInput: TFormInput = ({ field }) => {
 
 FormInput.Checkbox = Inputs.Checkbox;
 FormInput.Choices = Inputs.Choices;
+FormInput.Date = Inputs.Date;
 FormInput.Password = Inputs.Password;
-FormInput.Select = Inputs.Select;
-FormInput.Text = Inputs.Text;
 FormInput.Roles = Inputs.Roles;
+FormInput.Select = Inputs.Select;
+FormInput.Sites = Inputs.Sites;
+FormInput.Text = Inputs.Text;
 FormInput.Workflow = Inputs.Workflow;
 
 export default FormInput;

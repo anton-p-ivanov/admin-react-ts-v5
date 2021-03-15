@@ -5,15 +5,15 @@ import PageView from 'features/PageView';
 
 import UsersForm from '../features/UsersForm';
 
-const EditView: React.FC = () => {
-  const title = `Изменение пользователя`;
+const CopyView: React.FC = () => {
+  const title = `Копирование пользователя`;
   const breadcrumbs: TBreadcrumbs = [{ title: 'Пользователи', url: '/users' }];
 
   return (
     <PageView title={title} breadcrumbs={breadcrumbs}>
-      <UsersForm isNewElement={false} />
+      <UsersForm isNewElement={true} />
     </PageView>
   );
 };
 
-export default EditView;
+export default CopyView;

@@ -24,7 +24,7 @@ const routes: TRoute[] = [
     id: 'users.copy',
     path: `/users/:uuid/copy`,
     title: 'Копирование пользователя',
-    component: Views.EditView,
+    component: Views.CopyView,
   },
 ];
 

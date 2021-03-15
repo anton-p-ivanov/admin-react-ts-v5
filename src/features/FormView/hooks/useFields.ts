@@ -18,7 +18,7 @@ const useFields: TUseFieldsProps = (fields) => {
     const field = fields[key];
 
     const extend = {
-      value: state.data[field.name] || field.emptyValue,
+      value: typeof state.data[field.name] !== 'undefined' ? state.data[field.name] : field.emptyValue,
       errors: state.errors ? state.errors[field.name] : [],
       onChange: (value: string | string[] | boolean) => {
         update({ ...state, data: { ...state.data, [field.name]: value } as TReducerData });

@@ -23,6 +23,7 @@ const FormInput: TFormInput = ({ field }) => {
   return Element && Element(props);
 };
 
+FormInput.Boolean = Inputs.Boolean;
 FormInput.Checkbox = Inputs.Checkbox;
 FormInput.Choices = Inputs.Choices;
 FormInput.Date = Inputs.Date;

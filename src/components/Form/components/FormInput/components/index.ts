@@ -1,3 +1,4 @@
+import Boolean from './Boolean';
 import Checkbox from './Checkbox';
 import Choices from './Choices';
 import Date from './Date';
@@ -15,6 +16,7 @@ export type TInputs = {
 };
 
 const Inputs: TInputs = {
+  Boolean,
   Checkbox,
   Choices,
   Date,

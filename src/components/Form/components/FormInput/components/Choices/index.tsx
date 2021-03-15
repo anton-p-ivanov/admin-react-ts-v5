@@ -17,7 +17,12 @@ const Choices: React.FC<TChoicesProps> = (props) => {
     onChange,
   } = props;
 
-  const v = Array.isArray(value) ? value : ['string', 'boolean'].indexOf(typeof value) ? [value] : [];
+  const v = (Array.isArray(value)
+    ? value
+    : ['string', 'boolean'].indexOf(typeof value) !== -1
+    ? [value]
+    : []
+  ).map((value) => value.toString());
 
   const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     let arrayValue: (string | boolean)[] = [];
@@ -51,7 +56,7 @@ const Choices: React.FC<TChoicesProps> = (props) => {
               name={isMultiple ? `${name}[]` : name}
               type={isMultiple ? 'checkbox' : 'radio'}
               value={choice.value.toString()}
-              checked={v.includes(choice.value)}
+              checked={v.includes(choice.value.toString())}
               disabled={isDisabled || choice.isDisabled || false}
               onChange={onChangeHandler}
             />

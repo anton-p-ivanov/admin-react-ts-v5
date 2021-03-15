@@ -3,6 +3,7 @@ import Choices from './Choices';
 import Password from './Password';
 import Roles from './Roles';
 import Select from './Select';
+import Sites from './Sites';
 import Text from './Text';
 import Textarea from './Textarea';
 import Workflow from './Workflow';
@@ -17,6 +18,7 @@ const Inputs: TInputs = {
   Choices,
   Password,
   Roles,
+  Sites,
   Select,
   Text,
   Textarea,

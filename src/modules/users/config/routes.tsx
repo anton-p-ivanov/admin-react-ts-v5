@@ -5,7 +5,7 @@ const routes: TRoute[] = [
   {
     id: 'users',
     path: '/users',
-    title: 'Поользователи',
+    title: 'Пользователи',
     component: Views.ListView,
   },
   {

@@ -6,7 +6,7 @@ const columns: Types.TListViewColumns = [
   { name: 'selector', type: 'selector' },
   { name: 'fullName', title: 'Пользователь', isSortable: true },
   { name: 'email', title: 'E-Mail', isSortable: true },
-  { name: 'birthDate', title: 'Дата рождения', isSortable: true },
+  { name: 'account', title: 'Компания', isSortable: true },
   { name: 'updatedAt', title: 'Дата изменения' },
   { name: 'context', type: 'context' },
 ];

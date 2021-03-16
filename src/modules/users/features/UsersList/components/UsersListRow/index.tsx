@@ -21,7 +21,7 @@ const UsersListRow: React.FC<TUsersListRowProps> = (props) => {
       <td>
         <a href={`mailto:${data.email}`}>{data.email}</a>
       </td>
-      <td>{data.birthDate ? <DateFormat value={data.birthDate} format={`date`} /> : <em>нет данных</em>}</td>
+      <td>{data.account ? data.account.title : <em>нет данных</em>}</td>
       <td>{workflow ? <DateFormat value={workflow.updatedAt} /> : <em>нет данных</em>}</td>
       <td className="data-table__cell data-table__cell--context">
         <UsersListContext data={data} />

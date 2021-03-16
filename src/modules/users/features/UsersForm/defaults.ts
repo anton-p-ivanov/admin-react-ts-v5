@@ -3,7 +3,7 @@ import { TUser } from 'modules/users/config/types';
 export default {
   uuid: '',
   email: '',
-  isActive: true,
+  isActive: false,
   firstName: '',
   lastName: '',
   fullName: '',

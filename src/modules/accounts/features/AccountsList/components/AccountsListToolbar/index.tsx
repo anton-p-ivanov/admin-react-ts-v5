@@ -5,9 +5,9 @@ import { Button, DataToolbar, Icon } from 'components';
 import Context from 'store';
 
 import { useHandlers } from '../../hooks';
-import { TUsersListToolbarProps } from './types';
+import { TAccountsListToolbarProps } from './types';
 
-const UsersListToolbar: React.FC<TUsersListToolbarProps> = ({ isRowsSelected = false }) => {
+const AccountsListToolbar: React.FC<TAccountsListToolbarProps> = ({ isRowsSelected = false }) => {
   const { listView } = useContext(Context);
   const handlers = useHandlers();
 
@@ -17,7 +17,7 @@ const UsersListToolbar: React.FC<TUsersListToolbarProps> = ({ isRowsSelected = f
     <DataToolbar total={listView.state.pagination.total} search={search}>
       <div className="data-toolbar__group">
         <div className="data-toolbar__item">
-          <Link to={`/users/create`} className="btn btn--success">
+          <Link to="/accounts/create" className="btn btn--success">
             Создать
           </Link>
         </div>
@@ -38,4 +38,4 @@ const UsersListToolbar: React.FC<TUsersListToolbarProps> = ({ isRowsSelected = f
   );
 };
 
-export default UsersListToolbar;
+export default AccountsListToolbar;

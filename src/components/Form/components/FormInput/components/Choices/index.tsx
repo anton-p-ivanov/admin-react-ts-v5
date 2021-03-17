@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Button from 'components/Button';
 
-import { TChoicesProps } from './types';
+import { TChoices, TChoicesProps } from './types';
 import './styles.scss';
 
 const Choices: React.FC<TChoicesProps> = (props) => {
@@ -10,12 +10,19 @@ const Choices: React.FC<TChoicesProps> = (props) => {
     name,
     value = [],
     choices = [],
+    choicesCallback,
     variant = 'default',
     isMultiple = false,
     isDisabled = false,
     showToggleButton = true,
     onChange,
   } = props;
+
+  const [opts, setOpts] = useState<TChoices>(choices);
+
+  useEffect(() => {
+    choicesCallback && choicesCallback().then((options) => setOpts(options));
+  }, [choicesCallback]);
 
   const v = (Array.isArray(value)
     ? value
@@ -38,12 +45,12 @@ const Choices: React.FC<TChoicesProps> = (props) => {
   };
 
   const onClickHandler = () => {
-    onChange && onChange(v.length < choices.length ? choices.map((choice) => choice.value) : []);
+    onChange && onChange(v.length < opts.length ? opts.map((choice) => choice.value) : []);
   };
 
   return (
     <div className={`choices choices--${variant}`}>
-      {choices.map((choice) => {
+      {opts.map((choice) => {
         return (
           <label
             className="form-choice"
@@ -68,7 +75,7 @@ const Choices: React.FC<TChoicesProps> = (props) => {
         <>
           <br />
           <Button type={`button`} size={'small'} onClick={onClickHandler}>
-            {v.length === choices.length ? <>Снять выделение</> : <>Выделить все</>}
+            {v.length === opts.length ? <>Снять выделение</> : <>Выделить все</>}
           </Button>
         </>
       )}

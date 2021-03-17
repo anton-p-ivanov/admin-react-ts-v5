@@ -1,8 +1,7 @@
 import { TWorkflow } from 'config/types';
 
 export type TAccount = {
-  [key: string]: unknown;
-  active?: boolean;
+  isActive?: boolean;
   uuid?: string;
   title: string;
   email: string;
@@ -11,7 +10,7 @@ export type TAccount = {
   addresses: TAddress[];
   contacts: TAccountContact[];
   statuses: TAccountStatus[];
-  managers: string[];
+  managers: TAccountManager[];
   workflow?: TWorkflow;
 };
 

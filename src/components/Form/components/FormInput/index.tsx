@@ -27,6 +27,7 @@ FormInput.Boolean = Inputs.Boolean;
 FormInput.Checkbox = Inputs.Checkbox;
 FormInput.Choices = Inputs.Choices;
 FormInput.Date = Inputs.Date;
+FormInput.Number = Inputs.Number;
 FormInput.Password = Inputs.Password;
 FormInput.Roles = Inputs.Roles;
 FormInput.Select = Inputs.Select;

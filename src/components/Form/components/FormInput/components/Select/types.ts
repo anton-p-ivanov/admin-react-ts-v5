@@ -7,6 +7,7 @@ export type TSelectProps = {
   isMultiple?: boolean;
   onChange?: (value: TSelectValue) => void;
   options?: TSelectOptions;
+  optionsCallback?: () => Promise<TSelectOptions>;
   placeholder?: string;
   size?: number;
   variant?: string;

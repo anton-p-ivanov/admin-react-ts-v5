@@ -22,7 +22,6 @@ export type TAccountManager = {
 };
 
 export type TAccountStatus = {
-  [key: string]: unknown;
   status: string;
   expiredAt: string | null;
 };

@@ -1,0 +1,23 @@
+@import "src/assets/variables";
+
+.statuses-form {
+  display: flex;
+  align-items: center;
+
+  .form__input--select {
+    border-radius: $border-radius 0 0 $border-radius;
+    border-right: 0;
+    cursor: pointer;
+  }
+
+  .form__input--date {
+    width: auto;
+    border-radius: 0;
+    border-right: 0;
+  }
+
+  .btn {
+    flex-basis: 40px;
+    border-radius: 0 $border-radius $border-radius 0;
+  }
+}

@@ -1,6 +1,6 @@
 @import "src/assets/variables";
 
-.statuses-form {
+.managers-form {
   display: flex;
   align-items: center;
 
@@ -8,12 +8,10 @@
     border-radius: $border-radius 0 0 $border-radius;
     border-right: 0;
     cursor: pointer;
-  }
 
-  .form__input--date {
-    width: auto;
-    border-radius: 0;
-    border-right: 0;
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 
   .btn {

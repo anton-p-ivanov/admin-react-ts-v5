@@ -10,7 +10,7 @@ export type TAccount = {
   addresses: TAddress[];
   contacts: TAccountContact[];
   statuses: TAccountStatus[];
-  managers: TAccountManager[];
+  managers: string[];
   workflow?: TWorkflow;
 };
 

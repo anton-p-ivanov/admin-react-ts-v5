@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 
-export type TFormFieldValue = string | string[] | boolean;
+export type TFormFieldValue = string | string[] | boolean | number;
 export type TFormFieldType =
   | 'text'
   | 'textarea'

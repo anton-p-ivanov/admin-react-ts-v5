@@ -2,6 +2,7 @@ import Boolean from './Boolean';
 import Checkbox from './Checkbox';
 import Choices from './Choices';
 import Date from './Date';
+import Number from './Number';
 import Password from './Password';
 import Roles from './Roles';
 import Select from './Select';
@@ -20,6 +21,7 @@ const Inputs: TInputs = {
   Checkbox,
   Choices,
   Date,
+  Number,
   Password,
   Roles,
   Sites,

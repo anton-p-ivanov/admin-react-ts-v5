@@ -1,9 +1,8 @@
 import React from 'react';
 
-import DropDown from 'components/DropDown';
-import Icon from 'components/Icon';
+import { DropDown, Icon } from 'components';
 
-import useHandlers from '../../hooks/useHandlers';
+import { useHandlers } from '../../hooks';
 import { TUsersListContextProps } from './types';
 
 const UsersListContext: React.FC<TUsersListContextProps> = ({ data }) => {

@@ -1,7 +1,6 @@
 import { TWorkflow } from 'config/types';
 
 export type TUser = {
-  [key: string]: unknown;
   uuid: string;
   isActive?: boolean;
   fullName: string;
@@ -17,7 +16,6 @@ export type TUser = {
 };
 
 export type TUserPassword = {
-  [key: string]: unknown;
   createdAt?: string;
   expiredAt?: string;
   isExpired: boolean;

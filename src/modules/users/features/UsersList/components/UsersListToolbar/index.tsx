@@ -5,11 +5,12 @@ import { Button, DataToolbar, Icon } from 'components';
 import Context from 'store';
 
 import { useHandlers } from '../../hooks';
-import { TUsersListToolbar } from './types';
+import { TUsersListToolbarProps } from './types';
 
-const UsersListToolbar: React.FC<TUsersListToolbar> = ({ isRowsSelected = false }) => {
+const UsersListToolbar: React.FC<TUsersListToolbarProps> = ({ isRowsSelected = false }) => {
   const { listView } = useContext(Context);
   const handlers = useHandlers();
+
   const search = <DataToolbar.Search onSearch={handlers.search} />;
 
   return (

@@ -1,0 +1,21 @@
+@import "src/assets/variables";
+
+.managers-form {
+  display: flex;
+  align-items: center;
+
+  .form__input--select {
+    border-radius: $border-radius 0 0 $border-radius;
+    border-right: 0;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .btn {
+    flex-basis: 40px;
+    border-radius: 0 $border-radius $border-radius 0;
+  }
+}

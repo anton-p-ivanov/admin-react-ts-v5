@@ -1,5 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 
+import hash from 'object-hash';
+
 import Store from 'store';
 
 import { DataViewItems } from './components';
@@ -11,8 +13,10 @@ const DataView: React.FC<TDataViewProps> = (props) => {
   const { data = [], templates, columns, variant = 'default' } = props;
   const { dataView } = useContext(Store);
 
+  const deps = hash(data);
+
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => dataView.update({ ...dataView.state, data }), [data]);
+  useEffect(() => dataView.update({ ...dataView.state, data }), [deps]);
 
   return (
     <div className={`data-view data-view--${variant}`}>

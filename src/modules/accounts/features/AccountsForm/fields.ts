@@ -1,5 +1,4 @@
-import { TChoices } from 'components/Form/components/FormInput/components/Choices/types';
-import { TSelectOptions } from 'components/Form/components/FormInput/components/Select/types';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TFormField, TFormFields } from 'components/Form/types';
 import API from 'utils/api';
 
@@ -65,7 +64,7 @@ const parent: TFormField<string> = {
   attrs: {
     input: {
       placeholder: '- Выберите значение -',
-      optionsCallback: (): Promise<TSelectOptions> => {
+      optionsCallback: (): Promise<any> => {
         return API.lookup(`/accounts/lookup`);
       },
     },
@@ -80,7 +79,7 @@ const types: TFormField<string[]> = {
   attrs: {
     input: {
       isMultiple: true,
-      choicesCallback: (): Promise<TChoices> => {
+      choicesCallback: (): Promise<any> => {
         return API.lookup(`/accounts/types/lookup`);
       },
     },

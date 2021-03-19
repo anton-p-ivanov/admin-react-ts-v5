@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import hash from 'object-hash';
+
 import { TSelectOptions, TSelectProps } from './types';
 import './styles.scss';
 
@@ -17,7 +19,11 @@ const Select: React.FC<TSelectProps> = (props) => {
     variant = 'select',
   } = props;
 
-  const [opts, setOpts] = useState<TSelectOptions>(options);
+  const [opts, setOpts] = useState<TSelectOptions>([]);
+  const deps = hash(options);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => setOpts(options), [deps]);
 
   useEffect(() => {
     optionsCallback && optionsCallback().then((options) => setOpts(options));

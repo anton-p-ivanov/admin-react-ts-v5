@@ -1,0 +1,9 @@
+.modal__dialog--account-contact {
+  width: 600px;
+
+  .form__wrapper--sort {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
+}

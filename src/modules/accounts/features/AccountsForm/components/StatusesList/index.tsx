@@ -9,8 +9,6 @@ import Context from './context';
 import * as props from './props';
 import { TStatusesListProps } from './types';
 
-import './styles.scss';
-
 const StatusesList: React.FC<TStatusesListProps> = ({ statuses }) => {
   const [lookup, setLookup] = useState<TLookupResult[]>([]);
   const status = useModal();

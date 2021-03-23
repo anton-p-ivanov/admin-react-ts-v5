@@ -3,6 +3,8 @@ import React from 'react';
 import { TBreadcrumbs } from 'components/Breadcrumbs/types';
 import PageView from 'features/PageView';
 
+import CatalogsForm from '../../features/CatalogsForm';
+
 const EditView: React.FC = () => {
   const title = `Изменение справочника`;
   const breadcrumbs: TBreadcrumbs = [
@@ -10,7 +12,11 @@ const EditView: React.FC = () => {
     { title: 'Справочники', url: '/admin/catalogs' },
   ];
 
-  return <PageView title={title} breadcrumbs={breadcrumbs} />;
+  return (
+    <PageView title={title} breadcrumbs={breadcrumbs}>
+      <CatalogsForm isNewElement={false} />
+    </PageView>
+  );
 };
 
 export default EditView;

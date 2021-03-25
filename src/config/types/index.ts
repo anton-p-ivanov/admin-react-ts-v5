@@ -5,7 +5,7 @@ export type TRoute = {
   path: string;
   title: string;
   component: React.FC;
-  skipBreadcrumb?: boolean;
+  sidebar?: React.FC;
 };
 
 export type TRouteParams = {

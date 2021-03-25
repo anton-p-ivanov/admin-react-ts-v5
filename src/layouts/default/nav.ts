@@ -9,9 +9,9 @@ const AppNav: TNavItem[] = [
     id: 'admin',
     icon: 'settings',
     items: [
-      ['accounts.list', 'users.list'],
+      ['accounts', 'users'],
+      ['admin.catalogs.list', 'admin.catalogs.types.list'],
       ['forms.list'],
-      ['catalogs.list', 'catalogs.types.list'],
       ['training.courses.list', 'training.tests.list'],
     ],
   },

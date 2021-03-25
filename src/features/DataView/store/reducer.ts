@@ -2,8 +2,8 @@ import { RESET_STATE, UPDATE_STATE } from './actions';
 import { TDataViewReducer, TReducerState } from './types';
 
 export const INITIAL_STATE: TReducerState = {
-  data: [],
-  selected: [],
+  data: { default: [] },
+  selected: { default: [] },
   _timestamp: new Date().getTime(),
 };
 

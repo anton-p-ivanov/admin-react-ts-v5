@@ -6,8 +6,9 @@ export type TReducerData = any;
 export type TDataViewReducer = Reducer<TReducerState, TReducerAction>;
 
 export type TReducerState = {
-  data: TReducerData[];
-  selected: string[];
+  // data: TReducerData[];
+  data: Record<string, TReducerData[]>;
+  selected: Record<string, string[]>;
   _timestamp: number;
 };
 

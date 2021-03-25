@@ -44,7 +44,7 @@ const useHandlers = <T>(contact?: TAccountContact): TUseHandlers<T> => {
   const deleteHandler = (event: React.MouseEvent<T>) => {
     _prevent(event).then(() => {
       const account = formView.state.data as TAccount;
-      const selected = contact ? [contact.uuid] : dataView.state.selected;
+      const selected = contact ? [contact.uuid] : dataView.state.selected['account-contacts'] || [];
       const contacts = account.contacts.filter((item) => !selected.includes(item.uuid));
 
       formView.update({ ...formView.state, data: { ...account, contacts } });

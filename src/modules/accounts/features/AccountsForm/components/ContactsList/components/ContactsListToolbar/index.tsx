@@ -11,7 +11,7 @@ const ContactsListToolbar: React.FC<TContactsListToolbarProps> = ({ isRowsSelect
   const { dataView } = useContext(Context);
 
   return (
-    <DataToolbar total={dataView.state.data.length}>
+    <DataToolbar total={dataView.state.data['account-contacts'].length}>
       <div className="data-toolbar__group">
         <div className="data-toolbar__item">
           <Button type="button" size="small" onClick={handlers.create}>

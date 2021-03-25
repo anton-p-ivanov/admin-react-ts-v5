@@ -16,7 +16,7 @@ const ValuesListRow: React.FC<TValuesListRowProps> = (props) => {
       <td>{data.label}</td>
       <td>{data.value}</td>
       <td>{data.sort}</td>
-      <td>
+      <td className={`data-table__cell data-table__cell--context`}>
         <ValuesListContext data={data} />
       </td>
     </>

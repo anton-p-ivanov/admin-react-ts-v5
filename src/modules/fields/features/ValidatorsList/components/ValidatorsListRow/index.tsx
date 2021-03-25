@@ -17,7 +17,7 @@ const ValidatorsListRow: React.FC<TValidatorsListRowProps> = (props) => {
       </td>
       <td>{type ? type.label : <em>Неизвестный тип</em>}</td>
       <td>{data.options}</td>
-      <td>
+      <td className={`data-table__cell data-table__cell--context`}>
         <ValidatorsListContext data={data} />
       </td>
     </>

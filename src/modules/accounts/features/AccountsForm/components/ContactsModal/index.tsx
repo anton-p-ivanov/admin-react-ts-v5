@@ -8,7 +8,7 @@ import { useFields, useHandlers } from './hooks';
 
 import './styles.scss';
 
-const AddressesModal: React.FC = () => {
+const ContactsModal: React.FC = () => {
   const { dismiss, confirm } = useHandlers();
   const { state } = useContext(Context);
   const fields = useFields();
@@ -41,4 +41,4 @@ const AddressesModal: React.FC = () => {
 };
 
 export { Context };
-export default AddressesModal;
+export default ContactsModal;

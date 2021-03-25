@@ -7,6 +7,7 @@ const catalog: TCatalog = {
   isActive: true,
   isIndexed: false,
   isTrading: false,
+  fields: [],
   title: 'Новый справочник',
 };
 

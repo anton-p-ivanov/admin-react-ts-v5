@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
+import hash from 'object-hash';
+
 import Button from 'components/Button';
 
 import { TChoices, TChoicesProps } from './types';
+
 import './styles.scss';
 
 const Choices: React.FC<TChoicesProps> = (props) => {
@@ -19,6 +22,10 @@ const Choices: React.FC<TChoicesProps> = (props) => {
   } = props;
 
   const [opts, setOpts] = useState<TChoices>(choices);
+  const deps = hash(choices);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => setOpts(choices), [deps]);
 
   useEffect(() => {
     choicesCallback && choicesCallback().then((options) => setOpts(options));

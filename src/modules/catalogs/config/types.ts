@@ -1,4 +1,5 @@
 import { TWorkflow } from 'config/types';
+import { TField } from 'modules/fields/config/types';
 
 export type TCatalog = {
   uuid?: string;
@@ -10,6 +11,7 @@ export type TCatalog = {
   isTrading: boolean;
   isIndexed: boolean;
   type?: string;
+  fields: TField[];
   workflow?: TWorkflow;
 };
 

@@ -11,7 +11,7 @@ const AddressesListToolbar: React.FC<TAddressesListToolbarProps> = ({ isRowsSele
   const { dataView } = useContext(Context);
 
   return (
-    <DataToolbar total={dataView.state.data.length}>
+    <DataToolbar total={dataView.state.data['addresses'].length}>
       <div className="data-toolbar__group">
         <div className="data-toolbar__item">
           <Button type="button" size="small" onClick={handlers.create}>

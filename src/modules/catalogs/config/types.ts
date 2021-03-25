@@ -9,7 +9,7 @@ export type TCatalog = {
   isActive: boolean;
   isTrading: boolean;
   isIndexed: boolean;
-  type: string;
+  type?: string;
   workflow?: TWorkflow;
 };
 

@@ -47,7 +47,7 @@ const ListView: React.FC<Types.TListViewProps> = (props) => {
 
   return (
     <div id={id}>
-      <DataView data={state.data} templates={templates} columns={columns.map(mapper)} />
+      <DataView data={state.data} templates={templates} columns={columns.map(mapper)} variant={id} />
       {pagination.pages > 1 && <Pagination {...pagination} />}
       {children}
     </div>

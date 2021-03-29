@@ -13,7 +13,7 @@ const ValidatorsListRow: React.FC<TValidatorsListRowProps> = (props) => {
   return (
     <>
       <td>
-        <Form.Input.Checkbox name={`selector`} value={data.uuid} isSelected={isSelected} onSelect={onSelect} />
+        <Form.Input.Checkbox name={`selector`} value={data.type} isSelected={isSelected} onSelect={onSelect} />
       </td>
       <td>{type ? type.label : <em>Неизвестный тип</em>}</td>
       <td>{data.options}</td>

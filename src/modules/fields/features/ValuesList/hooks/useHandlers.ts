@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 
-import { TFieldValue } from 'modules/fields/config/types';
+import { TField, TFieldValue } from 'modules/fields/config/types';
 import Store from 'store';
 
-import { Context, defaults } from '../../ValuesModal';
+import { Context as FieldContext } from '../../FieldsModal';
+import { Context as ValueContext, defaults } from '../../ValuesModal';
 
 type TUseHandlers<T> = {
   create: (event: React.MouseEvent<T>) => void;
@@ -14,7 +15,8 @@ type TUseHandlers<T> = {
 };
 
 const useHandlers = <T>(value?: TFieldValue): TUseHandlers<T> => {
-  const modal = useContext(Context);
+  const field = useContext(FieldContext);
+  const modal = useContext(ValueContext);
   const { dataView } = useContext(Store);
 
   const _prevent = (event: React.MouseEvent<T>) => {
@@ -41,7 +43,13 @@ const useHandlers = <T>(value?: TFieldValue): TUseHandlers<T> => {
   };
 
   const deleteHandler = (event: React.MouseEvent<T>) => {
-    _prevent(event).then();
+    _prevent(event).then(() => {
+      const data = field.state.data as TField;
+      const selected = value ? [value.value] : dataView.state.selected['field-values'] || [];
+      const values = data.values.filter((item) => !selected.includes(item.value));
+
+      field.update({ ...field.state, data: { ...data, values } });
+    });
   };
 
   const createHandler = (event: React.MouseEvent<T>) => {

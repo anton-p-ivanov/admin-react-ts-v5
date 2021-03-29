@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 
-import { TFieldValidator } from 'modules/fields/config/types';
+import { TField, TFieldValidator } from 'modules/fields/config/types';
 import Store from 'store';
 
-import { Context as ContextModal, defaults } from '../../ValidatorsModal';
+import { Context as FieldContext } from '../../FieldsModal';
+import { Context as ValidatorContext, defaults } from '../../ValidatorsModal';
 
 type TUseHandlers<T> = {
   create: (event: React.MouseEvent<T>) => void;
@@ -14,7 +15,8 @@ type TUseHandlers<T> = {
 };
 
 const useHandlers = <T>(validator?: TFieldValidator): TUseHandlers<T> => {
-  const modal = useContext(ContextModal);
+  const field = useContext(FieldContext);
+  const modal = useContext(ValidatorContext);
   const { dataView } = useContext(Store);
 
   const _prevent = (event: React.MouseEvent<T>) => {
@@ -41,7 +43,13 @@ const useHandlers = <T>(validator?: TFieldValidator): TUseHandlers<T> => {
   };
 
   const deleteHandler = (event: React.MouseEvent<T>) => {
-    _prevent(event).then();
+    _prevent(event).then(() => {
+      const data = field.state.data as TField;
+      const selected = validator ? [validator.type] : dataView.state.selected['field-validators'] || [];
+      const validators = data.validators.filter((item) => !selected.includes(item.type));
+
+      field.update({ ...field.state, data: { ...data, validators } });
+    });
   };
 
   const createHandler = (event: React.MouseEvent<T>) => {

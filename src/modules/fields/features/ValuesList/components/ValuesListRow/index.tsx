@@ -11,7 +11,7 @@ const ValuesListRow: React.FC<TValuesListRowProps> = (props) => {
   return (
     <>
       <td>
-        <Form.Input.Checkbox name={`selector`} value={data.uuid} isSelected={isSelected} onSelect={onSelect} />
+        <Form.Input.Checkbox name={`selector`} value={data.value} isSelected={isSelected} onSelect={onSelect} />
       </td>
       <td>{data.label}</td>
       <td>{data.value}</td>

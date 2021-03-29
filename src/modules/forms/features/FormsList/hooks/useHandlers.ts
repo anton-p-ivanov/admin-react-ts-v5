@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 
+import { Context as ConfirmContext } from 'features/ConfirmModal';
 import { TForm } from 'modules/forms/config/types';
 import Store from 'store';
 
@@ -13,7 +14,8 @@ type TUseHandlers<T> = {
  * useHandlers hook
  */
 const useHandlers = <T>(form?: TForm): TUseHandlers<T> => {
-  const { listView } = useContext(Store);
+  const confirm = useContext(ConfirmContext);
+  const { listView, dataView } = useContext(Store);
   const pagination = { ...listView.state.pagination, page: 1 };
 
   const _prevent = (event: React.MouseEvent<T>) => {
@@ -26,7 +28,19 @@ const useHandlers = <T>(form?: TForm): TUseHandlers<T> => {
   };
 
   const deleteHandler = (event: React.MouseEvent<T>) => {
-    _prevent(event).then();
+    _prevent(event).then(() => {
+      confirm.update({
+        ...confirm.state,
+        isVisible: true,
+        data: {
+          endpoint: `DELETE:/forms`,
+          onSuccess: listView.refresh,
+          data: {
+            items: form ? [form.uuid] : dataView.state.selected['forms'],
+          },
+        },
+      });
+    });
   };
 
   const searchHandler = (search: string) => {

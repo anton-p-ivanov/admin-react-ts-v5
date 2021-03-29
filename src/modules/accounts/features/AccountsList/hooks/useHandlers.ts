@@ -36,7 +36,7 @@ const useHandlers = <T>(account?: TAccount): TUseHandlers<T> => {
           endpoint: `DELETE:/accounts`,
           onSuccess: listView.refresh,
           data: {
-            items: account ? [account.uuid] : dataView.state.selected,
+            items: account ? [account.uuid] : dataView.state.selected['accounts'],
           },
         },
       });

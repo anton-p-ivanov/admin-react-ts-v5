@@ -10,7 +10,7 @@ const INITIAL_CHOICES = [
 ];
 
 const Boolean: React.FC<TBooleanProps> = (props) => {
-  const { name, choices = INITIAL_CHOICES, variant, value, isDisabled = false, onChange } = props;
+  const { name, choices = INITIAL_CHOICES, variant, value = [false], isDisabled = false, onChange } = props;
 
   const onChangeHandler = (value: TChoicesValue) => {
     onChange && onChange(value[0] === 'true');

@@ -6,6 +6,7 @@ import AccountsRoutes from 'modules/accounts/config/routes';
 import CatalogsRoutes from 'modules/catalogs/config/routes';
 import FormsRoutes from 'modules/forms/config/routes';
 import StorageRoutes from 'modules/storage/config/routes';
+import TrainingRoutes from 'modules/training/config/routes';
 import UsersRoutes from 'modules/users/config/routes';
 
 const Routes: TRoute[] = [
@@ -29,4 +30,12 @@ const Routes: TRoute[] = [
   },
 ];
 
-export default [...Routes, ...StorageRoutes, ...UsersRoutes, ...AccountsRoutes, ...CatalogsRoutes, ...FormsRoutes];
+export default [
+  ...Routes,
+  ...StorageRoutes,
+  ...UsersRoutes,
+  ...AccountsRoutes,
+  ...CatalogsRoutes,
+  ...FormsRoutes,
+  ...TrainingRoutes,
+];

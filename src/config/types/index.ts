@@ -33,3 +33,15 @@ export type TSite = {
 export type TModel = {
   [key: string]: unknown;
 };
+
+export type TMailTemplate = {
+  [key: string]: unknown;
+  uuid?: string;
+  subject: string;
+  text: string;
+  html: string;
+  recipient: string;
+  sender: string;
+  replyTo?: string;
+  copyTo?: string;
+};

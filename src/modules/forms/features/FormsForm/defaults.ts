@@ -1,3 +1,4 @@
+import { defaults } from 'features/MailView';
 import { TForm } from 'modules/forms/config/types';
 
 const form: TForm = {
@@ -12,6 +13,7 @@ const form: TForm = {
   fields: [],
   statuses: [],
   sort: 100,
+  mailTemplate: { ...defaults, subject: 'Новый почтовый шаблон веб-формы' },
 };
 
 export default form;

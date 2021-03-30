@@ -13,6 +13,11 @@ const Tabs: TTabs = [
         component: Views.BasicTab,
       },
       {
+        id: 'form-status-mail',
+        label: 'Почтовый шаблон',
+        component: Views.MailTab,
+      },
+      {
         id: 'form-status-extra',
         label: 'Дополнительно',
         component: Views.ExtraTab,

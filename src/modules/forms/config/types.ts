@@ -1,4 +1,4 @@
-import { TWorkflow } from 'config/types';
+import { TMailTemplate, TWorkflow } from 'config/types';
 import { TField } from 'modules/fields/config/types';
 
 export type TForm = {
@@ -14,6 +14,7 @@ export type TForm = {
   sort: number;
   fields: TField[];
   statuses: TFormStatus[];
+  mailTemplate?: TMailTemplate;
   workflow?: TWorkflow;
 };
 
@@ -24,4 +25,5 @@ export type TFormStatus = {
   isActive: boolean;
   isDefault: boolean;
   sort: number;
+  mailTemplate?: TMailTemplate;
 };

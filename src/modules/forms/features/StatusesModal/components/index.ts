@@ -1,4 +1,5 @@
 import BasicTab from './BasicTab';
 import ExtraTab from './ExtraTab';
+import MailTab from './MailTab';
 
-export { ExtraTab, BasicTab };
+export { ExtraTab, BasicTab, MailTab };

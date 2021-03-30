@@ -26,6 +26,29 @@ $tabs-nav-background-color-hover: rgba(0, 0, 0, .05);
     border-left: solid 1px $tabs-nav-border-color;
     padding-left: 1rem;
   }
+
+
+  &--horizontal {
+    flex-direction: column;
+
+    .tabs__nav {
+      display: flex;
+      flex-direction: row;
+      flex: 0 0 100%;
+      padding: 0;
+    }
+
+    .tabs__content {
+      flex: 1 1 auto;
+      border: 0;
+      padding: 1rem 0 0 0;
+    }
+
+    .tabs-nav {
+      display: flex;
+      flex-direction: row;
+    }
+  }
 }
 
 .tabs-nav {

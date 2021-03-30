@@ -15,6 +15,7 @@ export type TTabsProps = {
   items: TTabs;
   disabled?: string[];
   invalid?: string[];
+  variant?: 'default' | 'horizontal';
 };
 
 export type TTabsContext = {

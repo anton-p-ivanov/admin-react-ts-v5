@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 
-// import { Context, defaults } from 'modules/training/features/QuestionsModal';
-
 import { TTrainingQuestion } from 'modules/training/config/types';
 import Store from 'store';
+
+import { Context as LessonContext } from '../../LessonsModal';
+import { Context as QuestionContext, defaults } from '../../QuestionsModal';
 
 type TUseHandlers<T> = {
   create: (event: React.MouseEvent<T>) => void;
@@ -17,8 +18,9 @@ type TUseHandlers<T> = {
  * useHandlers hook
  */
 const useHandlers = <T>(question?: TTrainingQuestion): TUseHandlers<T> => {
-  // const modal = useContext(Context);
-  const { dataView, formView } = useContext(Store);
+  const lessonModal = useContext(LessonContext);
+  const questionModal = useContext(QuestionContext);
+  const { dataView } = useContext(Store);
 
   const _prevent = (event: React.MouseEvent<T>) => {
     event.preventDefault();
@@ -31,28 +33,28 @@ const useHandlers = <T>(question?: TTrainingQuestion): TUseHandlers<T> => {
 
   const editHandler = (event: React.MouseEvent<T>) => {
     _prevent(event).then(() => {
-      // question && modal.update({ ...modal.state, isVisible: true, data: question });
+      question && questionModal.update({ ...questionModal.state, isVisible: true, data: question });
     });
   };
 
   const copyHandler = (event: React.MouseEvent<T>) => {
     _prevent(event).then(() => {
-      // question && modal.update({ ...modal.state, isVisible: true, data: { ...question, uuid: '' } });
+      question && questionModal.update({ ...questionModal.state, isVisible: true, data: { ...question, uuid: '' } });
     });
   };
 
   const deleteHandler = (event: React.MouseEvent<T>) => {
     _prevent(event).then(() => {
-      const data = formView.state.data as { questions: TTrainingQuestion[] };
+      const data = lessonModal.state.data as { questions: TTrainingQuestion[] };
       const selected = question ? [question.uuid] : dataView.state.selected['training-questions-list'] || [];
       const questions = data.questions.filter((item) => !selected.includes(item.uuid));
 
-      formView.update({ ...formView.state, data: { ...data, questions } });
+      lessonModal.update({ ...lessonModal.state, data: { ...data, questions } });
     });
   };
 
   const createHandler = (event: React.MouseEvent<T>) => {
-    _prevent(event).then(/*() => modal.update({ ...modal.state, isVisible: true, data: defaults })*/);
+    _prevent(event).then(() => questionModal.update({ ...questionModal.state, isVisible: true, data: defaults }));
   };
 
   return {

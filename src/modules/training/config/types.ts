@@ -1,7 +1,7 @@
 import { TWorkflow } from 'config/types';
 
 export type TTrainingCourse = {
-  uuid: string;
+  uuid?: string;
   title: string;
   description: string;
   code: string;
@@ -16,7 +16,7 @@ export type TTrainingCourse = {
 };
 
 export type TTrainingLesson = {
-  uuid: string;
+  uuid?: string;
   title: string;
   description: string;
   code: string;
@@ -27,7 +27,7 @@ export type TTrainingLesson = {
 };
 
 export type TTrainingQuestion = {
-  uuid: string;
+  uuid?: string;
   title: string;
   description: string;
   isActive: boolean;
@@ -38,14 +38,14 @@ export type TTrainingQuestion = {
 };
 
 export type TTrainingAnswer = {
-  uuid: string;
+  uuid?: string;
   answer: string;
   isValid: boolean;
   sort: number;
 };
 
 export type TTrainingTest = {
-  uuid: string;
+  uuid?: string;
   title: string;
   description: string;
   isActive: boolean;

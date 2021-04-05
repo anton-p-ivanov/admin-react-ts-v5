@@ -1,0 +1,17 @@
+@import "src/assets/variables";
+
+.training-course-accounts-form {
+  display: flex;
+  align-items: center;
+
+  .form__input--select {
+    border-radius: $border-radius 0 0 $border-radius;
+    border-right: 0;
+    cursor: pointer;
+  }
+
+  .btn {
+    flex-basis: 40px;
+    border-radius: 0 $border-radius $border-radius 0;
+  }
+}

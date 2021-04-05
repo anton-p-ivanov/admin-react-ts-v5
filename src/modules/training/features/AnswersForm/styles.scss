@@ -1,0 +1,19 @@
+.answers-form {
+  display: flex;
+
+  .answer-isValid {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0 1rem;
+
+    input {
+      margin-top: 0;
+    }
+  }
+
+  .btn {
+    padding: 0 .5rem;
+  }
+}

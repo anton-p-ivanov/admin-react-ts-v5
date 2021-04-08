@@ -23,7 +23,7 @@ const Layout: React.FC = () => {
                   .filter((route) => route.sidebar)
                   .map((route) => (
                     <Router.Route key={route.id} path={route.path} exact>
-                      {route.sidebar}
+                      {route.sidebar ? <route.sidebar /> : ''}
                     </Router.Route>
                   ))}
               </Router.Switch>

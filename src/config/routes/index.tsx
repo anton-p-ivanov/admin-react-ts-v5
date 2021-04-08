@@ -17,12 +17,6 @@ const Routes: TRoute[] = [
     component: () => <div>Main</div>,
   },
   {
-    id: 'catalogs',
-    path: '/catalogs',
-    title: 'Справочники',
-    component: () => <div>Catalogs</div>,
-  },
-  {
     id: 'admin',
     path: '/admin',
     title: 'Панель управления',

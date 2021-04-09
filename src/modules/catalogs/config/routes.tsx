@@ -57,6 +57,27 @@ const routes: TRoute[] = [
     component: elementsViews.ListView,
     sidebar: elementsViews.SidebarView,
   },
+  {
+    id: 'catalogs.elements.create',
+    path: '/catalogs/elements/:uuid/create',
+    title: 'Создание элемента',
+    component: elementsViews.CreateView,
+    sidebar: elementsViews.SidebarView,
+  },
+  {
+    id: 'catalogs.elements.edit',
+    path: '/catalogs/elements/:uuid/edit',
+    title: 'Изменение элемента',
+    component: elementsViews.EditView,
+    sidebar: elementsViews.SidebarView,
+  },
+  {
+    id: 'catalogs.elements.copy',
+    path: '/catalogs/elements/:uuid/copy',
+    title: 'Изменение элемента',
+    component: elementsViews.CopyView,
+    sidebar: elementsViews.SidebarView,
+  },
 ];
 
 export default routes.map((route) => ({ ...route, sidebar: route.sidebar || SidebarView }));

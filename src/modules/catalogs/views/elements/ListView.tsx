@@ -3,23 +3,24 @@ import { useParams } from 'react-router-dom';
 
 import { TBreadcrumbs } from 'components/Breadcrumbs/types';
 import PageView from 'features/PageView';
+import ElementsList from 'modules/catalogs/features/ElementsList';
 import API from 'utils/api';
 
 const ListView: React.FC = () => {
-  const [title, setTitle] = useState<string>(`Справочники`);
   const { uuid } = useParams();
+  const [title, setTitle] = useState<string>(`Элементы`);
 
   const breadcrumbs: TBreadcrumbs = [{ title: 'Справочники', url: '/catalogs/overview' }];
 
   useEffect(() => {
-    API.request({ url: `/catalogs/types/${uuid}` }).then((response) => {
-      setTitle(`Справочники :: ${response.data.title}`);
+    API.request({ url: `/catalogs/${uuid}/path` }).then((response) => {
+      setTitle(response.data.shift().title);
     });
   }, [uuid]);
 
   return (
     <PageView title={title} breadcrumbs={breadcrumbs}>
-      Catalogs list
+      <ElementsList node={uuid} />
     </PageView>
   );
 };

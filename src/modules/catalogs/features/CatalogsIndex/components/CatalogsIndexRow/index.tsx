@@ -9,7 +9,7 @@ const CatalogsIndexRow: React.FC<TCatalogsIndexRowProps> = (props) => {
   return (
     <>
       <td>
-        <Link to={`/catalogs/${data.uuid}/elements`}>{data.title}</Link>
+        <Link to={`/catalogs/elements/${data.tree}/list`}>{data.title}</Link>
       </td>
       <td>{0}</td>
     </>

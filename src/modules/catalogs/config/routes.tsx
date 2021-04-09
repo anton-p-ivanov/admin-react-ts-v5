@@ -52,9 +52,9 @@ const routes: TRoute[] = [
   },
   {
     id: 'catalogs.elements',
-    path: '/catalogs/:uuid/elements',
+    path: '/catalogs/elements/:uuid/list',
     title: 'Элементы',
-    component: elementsViews.ElementsView,
+    component: elementsViews.ListView,
     sidebar: elementsViews.SidebarView,
   },
 ];

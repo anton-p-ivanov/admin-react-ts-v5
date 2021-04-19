@@ -14,7 +14,12 @@ const ElementsListToolbar: React.FC<TElementsListToolbarProps> = ({ isRowsSelect
   const handlers = useHandlers();
 
   const search = <DataToolbar.Search onSearch={handlers.search} />;
-  const toggle = <Button variant={'success'}>Создать</Button>;
+  const toggle = (
+    <span className={`btn btn--success`}>
+      <span>Создать</span>
+      <Icon name={`chevron-down`} variant={`sm`} />
+    </span>
+  );
 
   return (
     <>

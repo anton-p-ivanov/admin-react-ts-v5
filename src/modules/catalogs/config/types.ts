@@ -41,6 +41,7 @@ export type TCatalogElement = {
   isActive: boolean;
   activeFrom: string;
   activeTo: string;
-  parentNode: string;
+  rootNode: string;
+  parentNodes: string[];
   workflow?: TWorkflow;
 };

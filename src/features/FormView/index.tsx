@@ -18,7 +18,7 @@ type TFormView = React.FC<TFormViewProps> & {
 let timeout: NodeJS.Timeout;
 
 const FormView: TFormView = (props) => {
-  const { endpoints, fields, defaults = {}, onSubmitSucceed, children } = props;
+  const { endpoints, fields, defaults = {}, data, onSubmitSucceed, children } = props;
   const { formView } = useContext(Store);
   const { state, update, request, reset, submit } = formView;
 
@@ -46,6 +46,9 @@ const FormView: TFormView = (props) => {
     return () => reset();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => update({ ...state, data: data || {} }), [data]);
 
   useEffect(() => {
     if (state.status === 'SUBMIT_SUCCEED') {

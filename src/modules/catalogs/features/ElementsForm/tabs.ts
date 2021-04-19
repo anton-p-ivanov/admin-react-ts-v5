@@ -4,8 +4,13 @@ import * as Views from './components';
 
 const Tabs: TTabs = [
   {
+    id: 'attributes',
+    label: 'Параметры элемента',
+    component: Views.AttributesTab,
+  },
+  {
     id: 'properties',
-    label: 'Основные параметры',
+    label: 'Свойства элемента',
     component: Views.PropertiesTab,
   },
   {

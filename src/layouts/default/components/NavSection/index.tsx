@@ -14,7 +14,7 @@ import './styles.scss';
  * @constructor
  */
 const NavSection: React.FC<TNavSectionProps> = (props) => {
-  const { title, icon = 'menu', items = [] } = props;
+  const { title, icon = 'menu', items = [], children } = props;
 
   return (
     <Nav variant="section">
@@ -36,6 +36,7 @@ const NavSection: React.FC<TNavSectionProps> = (props) => {
           </div>
         );
       })}
+      {children}
     </Nav>
   );
 };

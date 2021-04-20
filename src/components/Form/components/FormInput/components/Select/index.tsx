@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { TSelectProps } from './types';
+import hash from 'object-hash';
+
+import { TSelectOptions, TSelectProps } from './types';
 import './styles.scss';
 
 const Select: React.FC<TSelectProps> = (props) => {
@@ -12,9 +14,20 @@ const Select: React.FC<TSelectProps> = (props) => {
     onChange,
     size,
     options = [],
+    optionsCallback,
     placeholder,
     variant = 'select',
   } = props;
+
+  const [opts, setOpts] = useState<TSelectOptions>([]);
+  const deps = hash(options);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => setOpts(options), [deps]);
+
+  useEffect(() => {
+    optionsCallback && optionsCallback().then((options) => setOpts(options));
+  }, [optionsCallback]);
 
   const onChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const targetOptions = event.target.options;
@@ -22,7 +35,7 @@ const Select: React.FC<TSelectProps> = (props) => {
 
     for (let i = 0, l = targetOptions.length; i < l; i++) {
       if (targetOptions[i].selected) {
-        const selected = options.find((opt) => opt.value.toString() === targetOptions[i].value);
+        const selected = opts.find((opt) => opt.value.toString() === targetOptions[i].value);
         if (selected) {
           value.push(selected.value);
         }
@@ -43,7 +56,7 @@ const Select: React.FC<TSelectProps> = (props) => {
       size={size}
     >
       {placeholder && <option value="">{placeholder}</option>}
-      {options.map(({ value, label, isDisabled = false }) => (
+      {opts.map(({ value, label, isDisabled = false }) => (
         <option value={value} disabled={isDisabled} key={`option-${name}-${value}`}>
           {label}
         </option>

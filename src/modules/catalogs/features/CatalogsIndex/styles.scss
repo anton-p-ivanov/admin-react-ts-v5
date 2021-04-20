@@ -1,0 +1,32 @@
+@import "src/assets/variables";
+
+.catalogs-selector {
+  display: flex;
+  margin: 0 -.5rem 1rem;
+  padding: 0;
+
+  &__item {
+    display: block;
+    padding: 1rem;
+    margin: 0 .5rem;
+    border: solid 1px $color-gray-medium;
+    background-color: $color-gray-light;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+
+    &--active {
+      border-color: $color-primary;
+      background-color: $color-white;
+    }
+
+    & a {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: calc(150px - 2rem);
+    }
+  }
+
+
+}

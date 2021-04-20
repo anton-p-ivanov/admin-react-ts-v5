@@ -3,7 +3,7 @@ import * as Router from 'react-router-dom';
 
 import routes from 'config/routes';
 
-import { NavRoot, ContentView, SidebarSection } from './components';
+import { NavRoot, ContentView } from './components';
 import nav from './nav';
 
 import './styles.scss';
@@ -19,9 +19,13 @@ const Layout: React.FC = () => {
             </div>
             <div className="sidebar__section">
               <Router.Switch>
-                {nav.map((item) => (
-                  <SidebarSection item={item} key={item.id} />
-                ))}
+                {routes
+                  .filter((route) => route.sidebar)
+                  .map((route) => (
+                    <Router.Route key={route.id} path={route.path} exact>
+                      {route.sidebar ? <route.sidebar /> : ''}
+                    </Router.Route>
+                  ))}
               </Router.Switch>
             </div>
           </div>

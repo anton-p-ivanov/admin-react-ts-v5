@@ -1,0 +1,12 @@
+.data-view--passwords {
+  .data-table__col {
+    &--expiredAt,
+    &--createdAt {
+      width: auto;
+    }
+
+    &--isExpired {
+      width: 100px;
+    }
+  }
+}

@@ -12,7 +12,7 @@ import './styles.scss';
  * @constructor
  */
 const Tabs: React.FC<TTabsProps> = (props) => {
-  const { items, disabled = [], invalid = [] } = props;
+  const { items, disabled = [], invalid = [], variant = 'default' } = props;
   const [state, setState] = useState<TTabsState>({
     activeTab: Utils.getFirstTab(items),
   });
@@ -24,7 +24,7 @@ const Tabs: React.FC<TTabsProps> = (props) => {
   modifiedItems = Utils.setInvalidState(modifiedItems, invalid);
 
   return (
-    <div className="tabs">
+    <div className={`tabs tabs--${variant}`}>
       <Context.Provider value={{ state, setState }}>
         <div className="tabs__nav">
           <div className="tabs-nav">

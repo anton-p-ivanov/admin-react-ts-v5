@@ -56,6 +56,10 @@ $dropdown-border-width: 1px;
       display: block;
     }
 
+    &--left {
+      left: 0;
+    }
+
     &--right {
       right: 0;
     }

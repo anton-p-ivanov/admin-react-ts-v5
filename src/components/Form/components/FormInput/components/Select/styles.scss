@@ -20,12 +20,3 @@
 .form__input--select {
   @include baseInputSelect;
 }
-
-.form__input--workflow {
-  @include baseInputSelect;
-  width: 50%;
-
-  @include desktop {
-    width: 100%;
-  }
-}

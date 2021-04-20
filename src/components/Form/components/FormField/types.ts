@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 
-export type TFormFieldValue = string | string[] | boolean;
+export type TFormFieldValue = string | string[] | boolean | number;
 export type TFormFieldType =
   | 'text'
   | 'textarea'
@@ -11,7 +11,7 @@ export type TFormFieldType =
   | 'select'
   | 'static'
   | 'date'
-  | 'datetime'
+  | 'dateTime'
   | 'number'
   | 'lookup'
   | 'roles'
@@ -23,7 +23,7 @@ export type TFormFieldType =
 export type TFormField<T extends TFormFieldValue> = {
   name: string;
   label: string;
-  hint?: string;
+  hint?: string | React.ClassicElement<unknown>;
   type?: TFormFieldType;
   isRequired?: boolean;
   isDisabled?: boolean;

@@ -13,11 +13,11 @@ type TDropDown = React.FC<TDropDownProps> & {
 };
 
 const DropDown: TDropDown = (props) => {
-  const { toggle, children } = props;
+  const { toggle, variant = 'right', children } = props;
   const [ref, isVisible, setIsVisible] = Utils.useClickOutside(false);
   const className = Utils.className({
     [`dropdown__menu`]: true,
-    ['dropdown__menu--right']: true,
+    [`dropdown__menu--${variant}`]: true,
     ['dropdown__menu--visible']: isVisible,
   });
 

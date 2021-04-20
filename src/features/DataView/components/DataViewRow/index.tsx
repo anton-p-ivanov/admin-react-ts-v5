@@ -6,11 +6,11 @@ import Context from 'store';
 import { TDataViewRowProps } from './types';
 
 const DataViewRow: React.FC<TDataViewRowProps> = (props) => {
-  const { data, template: RowTemplate } = props;
+  const { variant, data, template: RowTemplate } = props;
   const { dataView } = useContext(Context);
   const { state, update } = dataView;
 
-  const selected = state.selected;
+  const selected = state.selected[variant] || [];
   const isSelected = selected.some((s) => s === data.uuid);
 
   const setSelected = (value: string) => {
@@ -18,7 +18,7 @@ const DataViewRow: React.FC<TDataViewRowProps> = (props) => {
   };
 
   const onSelectHandler = (value: string): void => {
-    update({ ...state, selected: setSelected(value) });
+    update({ ...state, selected: { ...state.selected, [variant]: setSelected(value) } });
   };
 
   return (

@@ -12,6 +12,7 @@ const element: TCatalogElement = {
   activeTo: '',
   title: 'Новый элемент',
   rootNode: '',
+  catalog: '',
   parentNodes: [],
 };
 

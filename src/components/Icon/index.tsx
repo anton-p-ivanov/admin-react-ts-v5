@@ -17,7 +17,7 @@ import './styles.scss';
  */
 const Icon: React.FC<TIconProps> = ({ name, title, variant }) => {
   const className = Utils.className({
-    feather: true,
+    [`feather`]: true,
     [`feather--${name}`]: true,
     [`feather--${variant}`]: !!variant,
   });

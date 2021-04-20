@@ -1,0 +1,15 @@
+@import "src/assets/mixins";
+
+.form__wrapper {
+  &--dates {
+    @include grid;
+
+    div {
+      overflow: auto;
+    }
+  }
+
+  &--workflow {
+    @include grid;
+  }
+}

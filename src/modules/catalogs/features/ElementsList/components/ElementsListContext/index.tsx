@@ -13,6 +13,7 @@ const ElementsListContext: React.FC<TElementsListContextProps> = ({ data }) => {
       {data.entity.isSection && <DropDown.Link route={`/catalogs/elements/${data.uuid}/list`}>Открыть</DropDown.Link>}
       {data.entity.isSection && <DropDown.Divider />}
       <DropDown.Link route={`/catalogs/elements/${data.entity.uuid}/edit`}>Изменить</DropDown.Link>
+      <DropDown.Link route={`/catalogs/elements/${data.entity.uuid}/copy`}>Копировать</DropDown.Link>
       <DropDown.Divider />
       <DropDown.Button onClick={handlers.delete}>Удалить</DropDown.Button>
     </DropDown>

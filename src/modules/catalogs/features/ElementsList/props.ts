@@ -17,7 +17,7 @@ const templates: Types.TListViewTemplates = {
 
 const conditions: Types.TListViewConditions = {
   ...Types.DEFAULT_CONDITIONS,
-  sort: '-updatedAt',
+  sort: 'title',
 };
 
 export { columns, templates, conditions };

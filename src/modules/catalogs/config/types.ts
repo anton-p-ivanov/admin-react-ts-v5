@@ -41,6 +41,14 @@ export type TCatalogElement = {
   isActive: boolean;
   activeFrom: string;
   activeTo: string;
-  parentNode: string;
+  catalog: string;
+  rootNode: string;
+  parentNodes: string[];
   workflow?: TWorkflow;
+};
+
+export type TCatalogValue = {
+  uuid?: string;
+  field: string;
+  value: string;
 };

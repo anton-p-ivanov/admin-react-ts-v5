@@ -79,12 +79,11 @@ const Choices: React.FC<TChoicesProps> = (props) => {
         );
       })}
       {isMultiple && showToggleButton && (
-        <>
-          <br />
+        <div className={`choices__toggle`}>
           <Button type={`button`} size={'small'} onClick={onClickHandler}>
-            {v.length === opts.length ? <>Снять выделение</> : <>Выделить все</>}
+            {v.length === opts.length ? <>Сбросить выбор</> : <>Выбрать все</>}
           </Button>
-        </>
+        </div>
       )}
     </div>
   );

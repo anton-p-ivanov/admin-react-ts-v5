@@ -2,11 +2,12 @@ import { TFormFields } from 'components/Form/types';
 import { TReducerData } from 'features/FormView/store/types';
 
 export type TFormViewEndpoints = {
-  request: string;
+  request?: string;
   submit: string;
 };
 
 export type TFormViewProps = {
+  data?: TReducerData;
   endpoints: TFormViewEndpoints;
   fields: TFormFields;
   defaults?: TReducerData;

@@ -9,6 +9,7 @@ const catalog: TCatalog = {
   isTrading: false,
   fields: [],
   title: 'Новый справочник',
+  tree: '',
 };
 
 export default catalog;

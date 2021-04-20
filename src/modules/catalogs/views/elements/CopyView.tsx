@@ -3,26 +3,27 @@ import { useParams } from 'react-router-dom';
 
 import { TBreadcrumbs } from 'components/Breadcrumbs/types';
 import PageView from 'features/PageView';
-import ElementsList from 'modules/catalogs/features/ElementsList';
+import { TCatalogElement } from 'modules/catalogs/config/types';
 import API from 'utils/api';
 
-const ListView: React.FC = () => {
-  const { uuid } = useParams();
-  const [title, setTitle] = useState<string>(`Элементы`);
+import ElementsForm from '../../features/ElementsForm';
 
+const CopyView: React.FC = () => {
+  const { uuid } = useParams();
+  const [data, setData] = useState<TCatalogElement>();
+
+  const title = `Копирование элемента`;
   const breadcrumbs: TBreadcrumbs = [{ title: 'Справочники', url: '/catalogs/overview' }];
 
   useEffect(() => {
-    API.request({ url: `/catalogs/${uuid}/path` }).then((response) => {
-      setTitle(response.data.shift().title);
-    });
+    API.request({ url: `/catalogs/elements/${uuid}` }).then((response) => setData(response.data));
   }, [uuid]);
 
   return (
     <PageView title={title} breadcrumbs={breadcrumbs}>
-      <ElementsList node={uuid} />
+      {data && <ElementsForm data={data} isNewElement={true} />}
     </PageView>
   );
 };
 
-export default ListView;
+export default CopyView;

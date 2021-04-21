@@ -13,7 +13,10 @@ const CopyView: React.FC = () => {
   const [data, setData] = useState<TCatalogElement>();
 
   const title = `Копирование элемента`;
-  const breadcrumbs: TBreadcrumbs = [{ title: 'Справочники', url: '/catalogs/overview' }];
+  const breadcrumbs: TBreadcrumbs = [
+    { title: 'Справочники', url: '/catalogs/overview' },
+    { title: 'Элементы', url: data && `/catalogs/elements/${data.rootNode}/list` },
+  ];
 
   useEffect(() => {
     API.request({ url: `/catalogs/elements/${uuid}` }).then((response) => setData(response.data));

@@ -5,19 +5,16 @@ import { Button, Tabs } from 'components';
 import FormView from 'features/FormView';
 
 import { SectionTab } from './components';
-import Context from './context';
-import defaults from './defaults';
-import fields from './fields';
-import tabs from './tabs';
+import { Context, defaults, tabs, fields } from './props';
 import { TElementsFormProps } from './types';
 
 import './styles.scss';
 
 const ElementsForm: React.FC<TElementsFormProps> = (props) => {
-  const { data = defaults, isNewElement = false } = props;
   const { uuid } = useParams();
   const history = useHistory();
-  const returnPath = `/catalogs/elements/${data.rootNode}/list`;
+  const { data = defaults.element, isNewElement = false } = props;
+  const returnPath = `/catalogs/elements/${data.parentNodes[0]}/list`;
 
   const endpoints = {
     submit: isNewElement ? `POST:/catalogs/elements` : `PUT:/catalogs/elements/${uuid}`,
@@ -44,4 +41,5 @@ const ElementsForm: React.FC<TElementsFormProps> = (props) => {
   );
 };
 
+export { defaults };
 export default ElementsForm;

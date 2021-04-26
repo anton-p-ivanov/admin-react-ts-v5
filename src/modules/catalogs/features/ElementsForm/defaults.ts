@@ -1,4 +1,5 @@
 import { TCatalogElement } from 'modules/catalogs/config/types';
+import Utils from 'utils';
 
 const element: TCatalogElement = {
   sort: 100,
@@ -8,7 +9,7 @@ const element: TCatalogElement = {
   type: 'E',
   isActive: true,
   isSection: false,
-  activeFrom: new Date().toUTCString(),
+  activeFrom: Utils.formatDate(new Date()),
   activeTo: '',
   title: 'Новый элемент',
   rootNode: '',
@@ -16,4 +17,12 @@ const element: TCatalogElement = {
   parentNodes: [],
 };
 
-export default element;
+const section = {
+  ...element,
+  code: 'NEW_SECTION',
+  title: 'Новый раздел',
+  type: 'S',
+  isSection: true,
+};
+
+export default { section, element };

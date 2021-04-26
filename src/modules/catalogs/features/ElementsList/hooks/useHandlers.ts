@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 
+import { Context as ConfirmContext } from 'features/ConfirmModal';
 import { TCatalogTree } from 'modules/catalogs/config/types';
 import Store from 'store';
 
@@ -13,7 +14,8 @@ type TUseHandlers<T> = {
  * useHandlers hook
  */
 const useHandlers = <T>(tree?: TCatalogTree): TUseHandlers<T> => {
-  const { listView } = useContext(Store);
+  const confirm = useContext(ConfirmContext);
+  const { listView, dataView } = useContext(Store);
   const pagination = { ...listView.state.pagination, page: 1 };
 
   const _prevent = (event: React.MouseEvent<T>) => {
@@ -26,7 +28,19 @@ const useHandlers = <T>(tree?: TCatalogTree): TUseHandlers<T> => {
   };
 
   const deleteHandler = (event: React.MouseEvent<T>) => {
-    _prevent(event).then();
+    _prevent(event).then(() => {
+      confirm.update({
+        ...confirm.state,
+        isVisible: true,
+        data: {
+          endpoint: `DELETE:/catalogs/tree`,
+          onSuccess: listView.refresh,
+          data: {
+            items: tree ? [tree.uuid] : dataView.state.selected['elements-list'],
+          },
+        },
+      });
+    });
   };
 
   const searchHandler = (search: string) => {

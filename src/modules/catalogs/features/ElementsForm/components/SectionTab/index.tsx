@@ -15,8 +15,8 @@ const SectionTab: React.FC = () => {
       <Form.Group>
         <Form.Field field={fields.title} />
         <Form.Field field={fields.code} />
-        <Form.Field field={fields.parentNode}>
-          <InputNodes root={root} value={fields.parentNode.value} onChange={fields.parentNode.onChange} />
+        <Form.Field field={fields.parentNodes}>
+          <InputNodes root={root} value={fields.parentNodes.value} onChange={fields.parentNodes.onChange} />
         </Form.Field>
         <Form.Field field={fields.description} />
       </Form.Group>

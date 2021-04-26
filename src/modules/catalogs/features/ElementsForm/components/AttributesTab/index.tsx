@@ -16,13 +16,15 @@ const AttributesTab: React.FC = () => {
             Период активности
           </label>
           <div className={`form__wrapper form__wrapper--dates`}>
-            <div>
+            <div className={`form__field ${fields.activeFrom.errors && `form__field--invalid`}`}>
               <Form.Input field={fields.activeFrom} />
               <Form.Hint field={fields.activeFrom} />
+              {fields.activeFrom.errors && <Form.Error field={fields.activeFrom} />}
             </div>
-            <div>
+            <div className={`form__field ${fields.activeTo.errors && `form__field--invalid`}`}>
               <Form.Input field={fields.activeTo} />
               <Form.Hint field={fields.activeTo} />
+              {fields.activeTo.errors && <Form.Error field={fields.activeTo} />}
             </div>
           </div>
         </div>

@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 
 import { Form } from 'components';
-import { Context } from 'features/FormView';
 import { TCatalogElement } from 'modules/catalogs/config/types';
 import Store from 'store';
 
+import { useFields } from '../../hooks';
 import InputNodes from '../InputNodes';
 
 const ExtraTab: React.FC = () => {
-  const { fields } = useContext(Context);
+  const fields = useFields();
   const { formView } = useContext(Store);
   const data = formView.state.data as TCatalogElement;
 

@@ -59,7 +59,7 @@ const routes: TRoute[] = [
   },
   {
     id: 'catalogs.elements.create',
-    path: '/catalogs/elements/:uuid/create',
+    path: '/catalogs/elements/:node/create',
     title: 'Создание элемента',
     component: elementsViews.CreateView,
     sidebar: elementsViews.SidebarView,

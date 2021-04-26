@@ -27,7 +27,7 @@ const ElementsListPath: React.FC<TElementsListPathProps> = ({ node }) => {
     <ul className={`elements-path`}>
       {state.map((item) => (
         <li key={item.uuid} className={`elements-path__item`}>
-          <Link to={`/catalogs/${item.uuid}/elements`}>{item.title}</Link>
+          <Link to={`/catalogs/elements/${item.uuid}/list`}>{item.title}</Link>
         </li>
       ))}
     </ul>

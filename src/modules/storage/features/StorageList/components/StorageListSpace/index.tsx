@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 
 import fileSize from 'filesize';
 
+import API from 'utils/api';
+
 import { TStorageListPathState } from './types';
+
 import './styles.scss';
 
 const StorageListSpace: React.FC = () => {
@@ -14,8 +17,8 @@ const StorageListSpace: React.FC = () => {
   useEffect(() => {
     setState({ ...state, isFetching: true });
 
-    fetch(`${process.env.REACT_APP_URL}/storage/space`).then((response) => {
-      return response.json().then((space) => setState({ ...state, space, isFetching: false }));
+    API.request({ url: `/storage/space` }).then((response) => {
+      setState({ ...state, space: response.data, isFetching: false });
     });
 
     return () => setState({ ...state, isFetching: false });

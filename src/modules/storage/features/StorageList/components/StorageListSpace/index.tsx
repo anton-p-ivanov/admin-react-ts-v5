@@ -15,13 +15,13 @@ const StorageListSpace: React.FC = () => {
   });
 
   useEffect(() => {
-    setState({ ...state, isFetching: true });
+    setState((prevState) => ({ ...prevState, isFetching: true }));
 
     API.request({ url: `/storage/space` }).then((response) => {
-      setState({ ...state, space: response.data, isFetching: false });
+      setState((prevState) => ({ ...prevState, space: response.data, isFetching: false }));
     });
 
-    return () => setState({ ...state, isFetching: false });
+    return () => setState((prevState) => ({ ...prevState, isFetching: false }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

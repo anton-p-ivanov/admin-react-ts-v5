@@ -18,16 +18,18 @@ type TFormView = React.FC<TFormViewProps> & {
 let timeout: NodeJS.Timeout;
 
 const FormView: TFormView = (props) => {
-  const { endpoints, fields, defaults = {}, data, onSubmitSucceed, children } = props;
+  const { endpoints, fields, defaults = {}, data, onSubmit, onSubmitSucceed, children } = props;
   const { formView } = useContext(Store);
   const { state, update, request, reset, submit } = formView;
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    submit(endpoints.submit, state.data).then((data) => {
-      return onSubmitSucceed && onSubmitSucceed(data);
-    });
+    onSubmit
+      ? onSubmit(event)
+      : submit(endpoints.submit, state.data).then((data) => {
+          return onSubmitSucceed && onSubmitSucceed(data);
+        });
   };
 
   const shadowClassName = Utils.className({
@@ -62,7 +64,7 @@ const FormView: TFormView = (props) => {
   return (
     <Context.Provider value={{ fields: useFields(fields) }}>
       <div className={`form-view`}>
-        <Form variant="horizontal" onSubmit={onSubmit}>
+        <Form variant="horizontal" onSubmit={onSubmitHandler}>
           {children}
         </Form>
         <div className={shadowClassName} />

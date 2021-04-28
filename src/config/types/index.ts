@@ -1,5 +1,9 @@
 import React from 'react';
 
+export type TAuthToken = {
+  token: string;
+};
+
 export type TRoute = {
   id: string;
   path: string;

@@ -1,0 +1,11 @@
+.content-view {
+  position: relative;
+
+  &__userbar {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    right: 0;
+  }
+}

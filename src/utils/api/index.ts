@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TFetchResult = any;
@@ -12,8 +12,29 @@ const _axios = axios.create({
   baseURL: process.env.REACT_APP_URL,
 });
 
+_axios.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (401 === error.response.status) {
+      localStorage.setItem('tokenExpired', 'true');
+      localStorage.removeItem('token');
+      location.reload();
+    }
+
+    return Promise.reject(error);
+  },
+);
+
 const API = {
-  request: _axios.request,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  request: (config: AxiosRequestConfig): Promise<AxiosResponse<any>> => {
+    const token = localStorage.getItem('token');
+    const headers = token ? { Authorization: `Bearer ${token}` } : {};
+
+    return _axios.request({ ...config, headers: { ...(config.headers || {}), ...headers } });
+  },
 
   lookup: async (url: string, search?: string): Promise<TLookupResult[]> => {
     const headers = {

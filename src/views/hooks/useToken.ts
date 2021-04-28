@@ -14,6 +14,7 @@ const useToken = (): TUseToken => {
 
   const saveToken = (token: string) => {
     localStorage.setItem('token', token);
+    localStorage.removeItem('tokenExpired');
     setToken(token);
   };
 

@@ -18,7 +18,9 @@ _axios.interceptors.response.use(
   },
   (error) => {
     if (401 === error.response.status) {
+      localStorage.setItem('tokenExpired', 'true');
       localStorage.removeItem('token');
+      location.reload();
     }
 
     return Promise.reject(error);
